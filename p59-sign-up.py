@@ -11,10 +11,10 @@ link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome
 link.click()
 
 firstName = driver.find_element_by_xpath('//*[@id="firstName"]')
-firstName.send_keys("Jim")
+firstName.send_keys("test")
 
 lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
-lastName.send_keys('Tang')
+lastName.send_keys('test')
 
 email = driver.find_element_by_xpath('//*[@id="emailId"]')
 email.send_keys('1111@gmail.com')
