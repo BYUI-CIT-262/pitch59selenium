@@ -8,7 +8,7 @@ driver.get("https://public.p59.dev/welcome")
 
 
 pwd1 = 'Love1111'
-pwd0- = 'Love111'
+pwd = 'Love111'
 
 
 link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
