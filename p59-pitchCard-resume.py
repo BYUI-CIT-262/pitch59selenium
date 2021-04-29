@@ -49,5 +49,5 @@ time.sleep(2)
 
 
 
-time.sleep(5)
-driver.quit()
+# time.sleep(5)
+# driver.quit()
