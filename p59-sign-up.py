@@ -17,10 +17,10 @@ lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
 lastName.send_keys('test')
 
 email = driver.find_element_by_xpath('//*[@id="emailId"]')
-email.send_keys('1111@gmail.com')
+email.send_keys('111@gmail.com')
 
 number = driver.find_element_by_xpath('//*[@id="contactNumber"]/input')
-number.send_keys('9999997485')
+number.send_keys('9999997484')
 
 zipCode = driver.find_element_by_xpath('//*[@id="zipCode"]')
 zipCode.send_keys('83440')
