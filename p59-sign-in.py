@@ -21,7 +21,7 @@ driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
 # PATH = "C:\Program Files (x86)\chromedriver.exe"
 # driver = webdriver.Chrome(PATH)
 # driver = webdriver.Chrome()
-# driver.maximize_window()
+driver.maximize_window()
 driver.get("https://public.p59.dev/welcome")
 
 
@@ -39,8 +39,8 @@ logIn.click()
 time.sleep(2)
 
 
-# contact = driver.find_element_by_xpath('//*[@id="search-swiper-pr_id_9"]/swiper/div/div[1]/div[3]/app-search-result-thumbnail/div/div[5]/div[2]')
-# time.sleep(3)
+contact = driver.find_element_by_xpath('//*[@id="search-swiper-pr_id_9"]/swiper/div/div[1]/div[3]/app-search-result-thumbnail/div/div[5]/div[2]')
+time.sleep(3)
 
 # contact.click()
 # time.sleep(3)
