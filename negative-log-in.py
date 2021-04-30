@@ -55,8 +55,13 @@ button.click()
 time.sleep(5)
 driver.quit()
 
-""" BREAK IN """
+""" BREAK IN 
+- (1-2 people) research/figure out how headless Chrome works
+- (1-2 people) figure out how to refresh sign-in page and erase credentials
+- (1-2 people) bank of wrong usernames
+- (1-2 people) bank of wrong passwords"""
 
 
-""" DELETE A USER (find code on postman) """
+""" DELETE A USER (find code on postman) 
+-verify that user exists"""
 
