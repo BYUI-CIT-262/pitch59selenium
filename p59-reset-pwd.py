@@ -1,11 +1,26 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+import sys, getopt
+
+def main(argv):
+   option = False
+   try:
+      opts, args = getopt.getopt(argv,"h")
+   except getopt.GetoptError:
+      print ('err')
+      sys.exit(2)
+      
+   for opt, arg in opts:
+      if opt in ['-h']:
+         option = True    
+         print('option = true')
+         return option
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 
 options = webdriver.ChromeOptions()
-options.headless = True
+options.headless = main(sys.argv[1:])
 options.add_argument(f'user-agent={user_agent}')
 options.add_argument("--window-size=1920,1080")
 options.add_argument('--ignore-certificate-errors')
