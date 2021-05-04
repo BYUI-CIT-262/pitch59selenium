@@ -1,6 +1,6 @@
 # How to use this project
 
-## 'Regular' (Desktop) Mode
+## Regular (Desktop) Mode
 - Run this command: `pip install selenium`
 - Run this command: `python [scriptname]`
 (remove the brackets above and change to the actual script)
