@@ -5,18 +5,20 @@ import time
 import sys, getopt
 
 def main(argv):
-   driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
    try:
       opts, args = getopt.getopt(argv,"h")
    except getopt.GetoptError:
       print ('err')
       sys.exit(2)
       
+   driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
    for opt, arg in opts:
       if opt in ['-h']:
-         driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
          return driver
+
+   driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
    return driver
+
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 options = webdriver.ChromeOptions()
@@ -30,8 +32,7 @@ driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
 
 
-time.sleep(3)
-
+print('test start')
 searchBtn = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[1]')
 searchBtn.click()
 print('Click search btn')

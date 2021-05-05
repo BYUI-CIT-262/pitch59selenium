@@ -32,7 +32,6 @@ driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
 
 
-print('test start')
 link = driver.find_element_by_xpath(
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
@@ -51,45 +50,29 @@ logIn.click()
 time.sleep(2)
 print('log in')
 
-contact = driver.find_element_by_xpath(
-    '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[1]/div[3]/app-search-result-thumbnail/div/div[5]/div[2]')
-time.sleep(3)
-
-# contact.click()
-# time.sleep(3)
-
-rightBotton = driver.find_element_by_xpath(
-    '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[4]')
-rightBotton.click()
-time.sleep(2)
-rightBotton.click()
-time.sleep(2)
-print('click right arrow on the pitch card')
-
-profi = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
 profi.click()
 time.sleep(2)
 
-logOut = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
-logOut.click()
-print('click profile and log out')
-
+favorite = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/ul/li[2]/a/span')
+favorite.click()
 time.sleep(2)
-driver.back()
 
-# time.sleep(5)
+addPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div')
+addPocket.click()
+time.sleep(1)
+
+pocketName = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/input')
+pocketName.send_keys('test')
+
+color = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/div/div[5]/div')
+color.click()
+
+create = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/button')
+create.click()
+
+time.sleep(5)
+
+
 print("test end")
 driver.quit()
-# log in
-# //*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]
-
-# Email
-# //*[@id="email"]
-
-# password
-# //*[@id="password"]
-
-# logIn button
-# /html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button
