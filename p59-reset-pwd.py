@@ -35,7 +35,7 @@ driver.get("https://public.p59.dev/welcome")
 pwd1 = 'Love1111'
 pwd = 'Love1111'
 
-
+print('test start')
 link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
 

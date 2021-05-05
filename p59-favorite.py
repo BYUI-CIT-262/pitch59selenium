@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import sys, getopt
-
+from selenium.webdriver import ActionChains
 
 def main(argv):
    try:
@@ -35,6 +35,7 @@ driver.get("https://public.p59.dev/welcome")
 link = driver.find_element_by_xpath(
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
+print('start test')
 print('click login')
 
 time.sleep(5)
@@ -57,6 +58,7 @@ time.sleep(2)
 favorite = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/ul/li[2]/a/span')
 favorite.click()
 time.sleep(2)
+print('On favorite page and try to create a new pocket')
 
 addPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div')
 addPocket.click()
@@ -70,8 +72,54 @@ color.click()
 
 create = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/button')
 create.click()
-
+print('Create a test pocket')
 time.sleep(5)
+
+# backToMainPage = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[1]/img')
+# backToMainPage.click()
+# time.sleep(2)
+# print("go back to main page")
+
+# saveToFavorite = driver.find_element_by_xpath('//*[@id="search-swiper-pr_id_18"]/swiper/div/div[1]/div[1]/app-search-result-thumbnail/div/div[6]/div[1]/span')
+# saveToFavorite.click()
+# time.sleep(1)
+
+# saveToTestPocket = driver.find_element_by_xpath('//*[@id="pr_id_43"]/app-pitchcard-modals-wrapper/p-dialog[4]/div/div/div[2]/div/app-pitchcard-folder-thumbnail[3]/div/div[1]/div[2]/span[2]')
+# saveToTestPocket.click()
+# time.sleep(1)
+# print("Add a pitch Card to test pocket")
+
+
+# profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+# profi.click()
+# time.sleep(2)
+
+# favorite = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/ul/li[2]/a/span')
+# favorite.click()
+# time.sleep(2)
+# print("Back to favorite page")
+
+# lookInToTest = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[3]')
+# lookInToTest.click()
+# time.sleep(2)
+
+# backToFavorite = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[1]/span/i')
+# backToFavorite.click()
+# time.sleep(4)
+# print('Back to favorite page')
+
+testPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[3]/app-pocket-thumbnail/div/div[2]')
+testPocket.click()
+time.sleep(2)
+
+deletePocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div[3]')
+deletePocket.click()
+time.sleep(2)
+
+delete = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[2]/div/div/div[2]/div/div[1]')
+delete.click()
+time.sleep(2)
+print('delete test pocket')
 
 
 print("test end")
