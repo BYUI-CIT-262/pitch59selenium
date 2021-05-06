@@ -11,14 +11,16 @@ def main(argv):
       print ('err')
       sys.exit(2)
       
-   driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
+   headless = False
    for opt, arg in opts:
       if opt in ['-h']:
-         return driver
+         headless = True
 
-   driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+   if headless:
+      driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
+   else:
+      driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
    return driver
-
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 options = webdriver.ChromeOptions()

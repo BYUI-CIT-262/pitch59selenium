@@ -11,12 +11,15 @@ def main(argv):
       print ('err')
       sys.exit(2)
       
-   driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
+   headless = False
    for opt, arg in opts:
       if opt in ['-h']:
-         return driver
+         headless = True
 
-   driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+   if headless:
+      driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
+   else:
+      driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
    return driver
 
 
@@ -43,10 +46,10 @@ lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
 lastName.send_keys('test')
 
 email = driver.find_element_by_xpath('//*[@id="emailId"]')
-email.send_keys('11@gmail.com')
+email.send_keys('1111@gmail.com')
 
 number = driver.find_element_by_xpath('//*[@id="contactNumber"]/input')
-number.send_keys('9999997483')
+number.send_keys('9999997485')
 
 zipCode = driver.find_element_by_xpath('//*[@id="zipCode"]')
 zipCode.send_keys('83440')
