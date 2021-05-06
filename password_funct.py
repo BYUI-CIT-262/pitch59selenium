@@ -22,7 +22,7 @@ def simple_pass(pass_len):
     return password
 
 # Calls the simple_pass function. Modify the 8 if you want a different password length.
-
+# for loop to create 99 passwords
 for i in range(100):
     password = simple_pass(8)
     print(password)
