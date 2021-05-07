@@ -27,28 +27,30 @@ user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 
 
 """ Start Web Driver """
-options = webdriver.ChromeOptions()
-options.headless = main(sys.argv[1:])
-options.add_argument(f'user-agent={user_agent}')
-options.add_argument("--window-size=1920,1080")
-options.add_argument('--ignore-certificate-errors')
-options.add_argument('--allow-running-insecure-content')
-options.add_argument("--disable-extensions")
-options.add_argument("--proxy-server='direct://'")
-options.add_argument("--proxy-bypass-list=*")
-options.add_argument("--start-maximized")
-options.add_argument('--disable-gpu')
-options.add_argument('--disable-dev-shm-usage')
-options.add_argument('--no-sandbox')
-# driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
-# # PATH = "C:\Program Files (x86)\chromedriver.exe"
-# # driver = webdriver.Chrome(PATH)
-# # driver = webdriver.Chrome()
+# options = webdriver.ChromeOptions()
+# options.headless = main(sys.argv[1:])
+# options.add_argument(f'user-agent={user_agent}')
+# options.add_argument("--window-size=1920,1080")
+# options.add_argument('--ignore-certificate-errors')
+# options.add_argument('--allow-running-insecure-content')
+# options.add_argument("--disable-extensions")
+# options.add_argument("--proxy-server='direct://'")
+# options.add_argument("--proxy-bypass-list=*")
+# options.add_argument("--start-maximized")
+# options.add_argument('--disable-gpu')
+# options.add_argument('--disable-dev-shm-usage')
+# options.add_argument('--no-sandbox')
+# # driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+# driver = webdriver.Remote(
+#     "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
+# driver.get("https://public.p59.dev/welcome")
+
+PATH = "D:\Programs\chromedriver_win32\chromedriver.exe"
+driver = webdriver.Chrome(PATH)
+driver.get("https://public.p59.dev/welcome")
+# driver = webdriver.Chrome()
 # driver.maximize_window()
 
-driver = webdriver.Remote(
-    "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
-driver.get("https://public.p59.dev/welcome")
 
 
 
@@ -89,18 +91,65 @@ else:
 
 
 """ BREAK IN """
-link = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[3]')
-link.click()
+# link = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[3]')
+# link.click()
+
+# listUsers = [
+#     {'email':'1221@gmail.com','password':'Love1101'},
+#     {'email':'1221@gmail.com','password':'Love11101'},
+#     {'email':'1221@gmail.com','password':'Love1111'},
+#     {'email':'1222@gmail.com','password':'Love1111'}
+# ]
+
+# # '1221@gmail.com':'Love1101',
+# for i in listUsers:
+#     email = driver.find_element_by_id('email')
+#     passwrd = driver.find_element_by_id('password')
+#     submit = driver.find_element_by_xpath('/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
+#     email.send_keys(i['email'])
+#     print("email input")
+#     passwrd.send_keys(i['password'])
+#     print('password input')
+#     submit.click()
+#     print('clicked submit')
+#     time.sleep(3)
+#     # Some code to check if login was successful
+#     try:
+#         account = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/div[4]/div')
+#         print(f'Log In #{i} Successful')
+#         account.click()
+#         print('Clicking account')
+#         logout = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
+#         logout.click()
+#         print('Logged Out')
+#         driver.refresh()
+#         time.sleep(10)
+#         pass
+#     except NoSuchElementException:
+#         print('Log in Unsuccessful')
+#         driver.refresh()
+#         continue
+
+# link = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[3]')
+# link.click()
 
 listUsers = [
     {'email':'1221@gmail.com','password':'Love1101'},
-    {'email':'1221@gmail.com','password':'Love11101'},
     {'email':'1221@gmail.com','password':'Love1111'},
-    {'email':'1222@gmail.com','password':'Love1111'}
+    {'email':'1221@gmail.com','password':'Love1111'},
+    {'email':'12201@gmail.com','password':'Love11101'},
+    {'email':'1221@gmail.com','password':'Love1111'}
 ]
 
-# '1221@gail.com':'Love1101',
+
+loginSuccess = 0
+whichLogin = ""
+
 for i in listUsers:
+    link = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[3]')
+    link.click()
+    print("clicked log in")
+    time.sleep(1)
     email = driver.find_element_by_id('email')
     passwrd = driver.find_element_by_id('password')
     submit = driver.find_element_by_xpath('/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
@@ -109,24 +158,39 @@ for i in listUsers:
     passwrd.send_keys(i['password'])
     print('password input')
     submit.click()
-    print('clicked submit')
+    print('clicked submit')    
     time.sleep(3)
     # Some code to check if login was successful
     try:
         account = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/div[4]/div')
-        print(f'Log In #{i} Successful')
+        # index = vowels.index('e')
+        print('Log In #', listUsers.index(i)+1,' Successful')
+        loginSuccess += 1
+        whichLogin = whichLogin + str(i) + "\n"
         account.click()
         print('Clicking account')
+        time.sleep(1)
         logout = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
         logout.click()
-        print('Logged Out')
+        time.sleep(1)
+        print('Logged Out\n')
         driver.refresh()
-        time.sleep(10)
+        time.sleep(1)
         pass
     except NoSuchElementException:
-        print('Log in Unsuccessful')
+        # print('Log in Unsuccessful')
+        print('Log In #', listUsers.index(i)+1,' Unsuccessful\n')
         driver.refresh()
         continue
+if loginSuccess == 1:
+    print(f"There was {loginSuccess} successful login")
+    print(f"The account that successfully logged in was: \n {whichLogin}")
+elif loginSuccess == 0:
+    print("There were no successful logins")
+else:
+    print(f"There were {loginSuccess} successful logins")
+    print(f"The accounts that successfully logged in were: \n{whichLogin}")
+
 
 
 
