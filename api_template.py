@@ -1,16 +1,15 @@
 import requests
 """ CREATE A USER """
-#Call create user API (from postman)
 # :)
 # specify the function to be carried out
 signupURL = "api/account/sign-up?otp_check=true"
 
 # specify delete url
 
-
 # set a variable to equal the URL
 pitch59_URL = f"https://api.p59.dev/{signupURL}"
 # set arguments that focus the data request
+
 body = {
         "firstName": "Tony",
         "lastName": "Stark",
@@ -28,6 +27,7 @@ head = {
     "content-type": "application/json",
     "Accept" : "*/*",
     "Accept-Encoding" : "gzip, deflate, br",
+
     "Connection" : "keep-alive"}
 # request information from endpoint according to listed arguments
 response = requests.post(pitch59_URL, data=body, headers=head)
