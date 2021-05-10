@@ -34,7 +34,6 @@ options.add_argument('--no-sandbox')
 driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
 
-
 link = driver.find_element_by_xpath(
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
@@ -78,12 +77,56 @@ create.click()
 print('Create a test pocket')
 time.sleep(5)
 
-# backToMainPage = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[1]/img')
-# backToMainPage.click()
+
+# testPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[3]/app-pocket-thumbnail/div/div[2]')
+# testPocket.click()
 # time.sleep(2)
+
+# deletePocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div[3]')
+# deletePocket.click()
+# time.sleep(2)
+
+# delete = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[2]/div/div/div[2]/div/div[1]')
+# delete.click()
+# time.sleep(2)
+# print('delete test pocket')
+
+intoHomePocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[2]')
+intoHomePocket.click()
+time.sleep(3)
+
+copyToTest = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/app-search-result-thumbnail[1]')
+act = ActionChains(driver) 
+act.context_click(copyToTest).perform()
+time.sleep(3)
+# copyToTest.click()
+copyToTest2 = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[3]/app-context-menu/div/div/div[4]')
+copyToTest2.click()
+time.sleep(2)
+print('Copy to test file')
+
+# /html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[5]/div/div/div[2]/div/app-pitchcard-folder-thumbnail[1]/div/div[1]
+# /html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[5]/div/div/div[2]/div/app-pitchcard-folder-thumbnail[2]/div/div[1]
+copyToTest3 = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[5]/div/div/div[2]/div/app-pitchcard-folder-thumbnail[2]/div/div[1]/div[2]')
+print('copying')
+driver.implicitly_wait(10)
+hover = ActionChains(driver).move_to_element(copyToTest3)
+hover.perform()
+# .click().perform()
+# copyToTest3.click()
+time.sleep(2)
+
+# backToFavorite = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[1]/span/i')
+# backToFavorite.click()
+# time.sleep(2)
+# print('Back to favorite page')
+
+# backToMainPage = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[1]/img')
+# time.sleep(2)
+# backToMainPage.click()
 # print("go back to main page")
 
-# saveToFavorite = driver.find_element_by_xpath('//*[@id="search-swiper-pr_id_18"]/swiper/div/div[1]/div[1]/app-search-result-thumbnail/div/div[6]/div[1]/span')
+# saveToFavorite = driver.find_element_by_xpath('//*[@id="search-swiper-pr_id_12"]/swiper/div/div[1]/div[1]/app-search-result-thumbnail/div/div[6]/div[1]')
 # saveToFavorite.click()
 # time.sleep(1)
 
@@ -111,19 +154,19 @@ time.sleep(5)
 # time.sleep(4)
 # print('Back to favorite page')
 
-testPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[3]/app-pocket-thumbnail/div/div[2]')
-testPocket.click()
-time.sleep(2)
+# testPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[3]/app-pocket-thumbnail/div/div[2]')
+# testPocket.click()
+# time.sleep(2)
 
-deletePocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div[3]')
-deletePocket.click()
-time.sleep(2)
+# deletePocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div[3]')
+# deletePocket.click()
+# time.sleep(2)
 
-delete = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[2]/div/div/div[2]/div/div[1]')
-delete.click()
-time.sleep(2)
-print('delete test pocket')
+# delete = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[2]/div/div/div[2]/div/div[1]')
+# delete.click()
+# time.sleep(2)
+# print('delete test pocket')
 
 
 print("test end")
-driver.quit()
+# driver.quit()
