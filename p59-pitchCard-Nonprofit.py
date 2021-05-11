@@ -36,6 +36,7 @@ driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
 
 
+# -------------- log in --------------------------
 link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
 
@@ -72,13 +73,10 @@ freeTwo.click()
 time.sleep(2)
 print('to the referal page')
 
-# referBtn = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[2]/ul/li[1]/span[2]/img')
-# referBtn.click()
-# time.sleep(2)
-
 driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[1]/div').click()
 time.sleep(2)
 
+# ------------------card information -----------------------------
 driver.find_element_by_xpath('//*[@id="cardNumber"]/input').send_keys('4022400001871076')
 driver.find_element_by_xpath('//*[@id="month"]/span/input').send_keys('12')
 driver.find_element_by_xpath('//*[@id="year"]/span/input').send_keys('2021')
@@ -96,7 +94,7 @@ time.sleep(2)
 driver.find_element_by_xpath('/html/body/app-root/main/app-layout/div[2]/div/div/div/div[3]/div/div[2]/div').click()
 time.sleep(2)
 
-# Information page
+# -------------------- Information page -------------------------
 fullName = driver.find_element_by_xpath('//*[@id="businessName"]')
 fullName.send_keys('Test')
 
@@ -129,7 +127,7 @@ saveAbdNext.click()
 time.sleep(2)
 print('finish information page')
 
-# Link page
+# ------------------------- Link page -------------------------------
 facebookLink = driver.find_element_by_xpath('//*[@id="facebookLink"]')
 facebookLink.send_keys('11111')
 
@@ -153,7 +151,7 @@ saveAbdNext.click()
 time.sleep(2)
 print('finish link page')
 
-# upload image page
+# ------------------------- upload image page ----------------------------
 time.sleep(2)
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[2]/div[1]/button/input').send_keys('E:/BYUI/wddinternship/images/BYUI.png')
 time.sleep(2)
@@ -175,7 +173,8 @@ saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/
 saveAbdNext.click()
 time.sleep(5)
 
-#  up load video page
+# --------------------- video update  -------------------------
+
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').click()
 time.sleep(2)
 
