@@ -1,24 +1,29 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import time
 import sys, getopt
 
 
 def main(argv):
-   option = False
+   global driver 
    try:
-      opts, args = getopt.getopt(argv,'h','headless=')
+      opts, args = getopt.getopt(argv,"h")
    except getopt.GetoptError:
       print ('err')
       sys.exit(2)
       
    for opt, arg in opts:
-      if opt in ['-h','--headless']:
-         option = True
-         print('option = true')
-         sys.exit()
-      elif opt != '-h':
-         print('nononoo')
+      if opt in ['-h']:
+         driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
+         print('driver')
+      else:
+         driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+         print('driver')
+         return driver
         
 if __name__ == "__main__":
-   main(sys.argv[1:])
+   print(main(sys.argv[1:]))
 
 
 
