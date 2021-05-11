@@ -63,22 +63,8 @@ nextBtn.click()
 time.sleep(2)
 print('create reseme')
 
-# free = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-cycle/div/div[1]/div[2]/div[1]/div/div[2]')
-# free.click()
-# time.sleep(2)
 
-# freeTwo = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-visual-video/div/div[1]/div[2]/div[1]/div/div[2]')
-# freeTwo.click()
-# time.sleep(2)
-# print('to the referal page')
-
-# referBtn = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[2]/ul/li[1]/span[2]/img')
-# referBtn.click()
-# time.sleep(2)
-
-# referMail = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[2]/ul/li[1]/span[2]/input')
-# referMail.send_keys('IneedEmail@gmail.com')
-
+# --------Information page ------------
 fullName = driver.find_element_by_xpath('//*[@id="businessName"]')
 fullName.send_keys('Test')
 
@@ -111,7 +97,7 @@ saveAbdNext.click()
 time.sleep(2)
 print('finish information page')
 
-
+# -------------- link page -------------------
 facebookLink = driver.find_element_by_xpath('//*[@id="facebookLink"]')
 facebookLink.send_keys('11111')
 
@@ -144,6 +130,7 @@ saveAbdNext.click()
 time.sleep(2)
 print('Radius page still needs to work on')
 
+# ----------------- position page -----------------------
 position = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/span[1]/p-autocomplete/span/ul/li/input')
 position.send_keys('Web Developer')
 
@@ -170,9 +157,11 @@ saveAbdNext.click()
 time.sleep(2)
 print('finished Employment page')
 
+
+#-------------------- image update page -------------------
+
 # //*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button/input
 # driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button').click()
-time.sleep(2)
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button/input').send_keys('C://Users/after/OneDrive/桌面/resume.pdf')
 time.sleep(2)
 print('upload resume')
@@ -196,9 +185,9 @@ saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/
 saveAbdNext.click()
 time.sleep(5)
 
+# --------------------- video update  -------------------------
 
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').click()
-# .send_keys('C:/Users/after/OneDrive/桌面/webpage.mp4')
 time.sleep(2)
 driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div[1]/p/p-checkbox/div/div[2]').click()
 driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div[2]/p/p-checkbox/div/div[2]').click()
@@ -209,7 +198,5 @@ driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/button').click()
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').send_keys('C:/Users/after/OneDrive/桌面/webpage.mp4')
 time.sleep(5)
 
-# time.sleep(5)
-# video_recorder.stop()
 print('test end')
 driver.quit()
