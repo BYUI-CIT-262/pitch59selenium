@@ -79,10 +79,10 @@ print('to the referal page')
 driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[1]/div').click()
 time.sleep(2)
 
-driver.find_element_by_xpath('//*[@id="cardNumber"]/input').send_keys('4022400001871076')
-driver.find_element_by_xpath('//*[@id="month"]/span/input').send_keys('12')
-driver.find_element_by_xpath('//*[@id="year"]/span/input').send_keys('2021')
-driver.find_element_by_xpath('//*[@id="cvc"]').send_keys('737')
+driver.find_element_by_xpath('//*[@id="cardNumber"]/input').send_keys('5220963224716664')
+driver.find_element_by_xpath('//*[@id="month"]/span/input').send_keys('4')
+driver.find_element_by_xpath('//*[@id="year"]/span/input').send_keys('2023')
+driver.find_element_by_xpath('//*[@id="cvc"]').send_keys('337')
 print('card information')
 time.sleep(5)
 
@@ -130,6 +130,9 @@ time.sleep(2)
 print('finish information page')
 
 # Link page
+
+driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pricing/div/form/div[1]/span/p-autocomplete/span/ul/li/input').send_keys('web develop')
+
 facebookLink = driver.find_element_by_xpath('//*[@id="facebookLink"]')
 facebookLink.send_keys('11111')
 
