@@ -24,8 +24,6 @@ def main(argv):
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 
-
-
 """ Start Web Driver """
 options = webdriver.ChromeOptions()
 options.headless = main(sys.argv[1:])
@@ -51,19 +49,17 @@ driver.get("https://public.p59.dev/welcome")
 # driver = webdriver.Chrome()
 # driver.maximize_window()
 
-
-
-
 """ CREATE A USER """
 #Call create user API (from postman)
 # :)
 # specify the function to be carried out
-signupURL = "/api/account/sign-up?otp_check=true"
+signupURL = "api/account/sign-up?otp_check=true"
 
 # specify delete url
 
 
 # set a variable to equal the URL
+<<<<<<< Updated upstream
 pitch59_URL = f"https://public.p59.dev/{signupURL}"
 # set arguments that focus the data request
 args = {
@@ -81,6 +77,39 @@ args = {
     }
 # request information from endpoint according to listed arguments
 response = requests.get(pitch59_URL, params=args)
+=======
+pitch59_URL = f"https://api.p59.dev/{signupURL}"
+# firstname = input("Please input first name: ")
+# lastname = input("Please enter last name: ")
+# phonenumber = input("PlEASE enter a phone numbER: ")
+# email = input("Plase entar ya'rr email here: ")
+# passwordInput = input("Enter password: ")
+# zipcode = input("Now your zip code: ")
+
+# set arguments that focus the data request
+# args = {
+#         "firstName": firstname,
+#         "lastName": lastname,
+#         "isTesterUser": True,
+#         "contactNumber": phonenumber,
+#         "emailId": email,
+#         "password": passwordInput,
+#         "zipCode": zipcode,
+#         "otpCode": 9865
+#     }
+body = {
+    "firstName": "Julie",
+    "lastName": "Tester",
+    "isTesterUser": True,
+    "contactNumber": "(999) 999-4444",
+    "emailId": "bobhope1234@hotmail.com",
+    "password": "BetterThanCap10",
+    "zipCode": "84440",
+    "otpCode": 9865
+}
+# request information from endpoint according to listed arguments
+response = requests.post(pitch59_URL, json=body)
+>>>>>>> Stashed changes
 # check for successful request
 if response.status_code == 200:
     #convert data to a python dictionary
@@ -88,7 +117,6 @@ if response.status_code == 200:
 else:
     #The request failed- print the status code:
     print("Failure with status code:", response.status_code)
-
 
 """ BREAK IN """
 listUsers = [
