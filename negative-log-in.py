@@ -8,6 +8,8 @@ import sys
 import getopt
 import requests
 import names
+import random
+import string
 
 def main(argv):
     option = False
@@ -39,9 +41,9 @@ options.add_argument("--start-maximized")
 options.add_argument('--disable-gpu')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--no-sandbox')
-# driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
-driver = webdriver.Remote(
-    "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
+driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+# driver = webdriver.Remote(
+#     "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
 driver.get("https://public.p59.dev/welcome")
 
 # PATH = "D:\Programs\chromedriver_win32\chromedriver.exe"
@@ -105,7 +107,7 @@ else:
 """ BREAK IN """
 def simple_user():
     name= names.get_first_name() + names.get_last_name()
-    print(name)
+    #print(name)
     return name
 
 def simple_pass(pass_len):
@@ -129,9 +131,9 @@ def simple_pass(pass_len):
     return password
 
 dictUsers = {
-    email:passwordInput
+    "bobhope1234@hotmail.com" : "BetterThanCap10"
 }
-for i in range(100):
+for i in range(10):
     userEmail = simple_user() + "@gmail.com"
     dictUsers[userEmail] = simple_pass(8)
 
@@ -140,7 +142,7 @@ for i in range(100):
 loginSuccess = 0
 whichLogin = ""
 counter = 0
-for i in dictUsers:
+for k in dictUsers:
     counter += 1
     link = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[3]')
     link.click()
@@ -149,9 +151,9 @@ for i in dictUsers:
     email = driver.find_element_by_id('email')
     passwrd = driver.find_element_by_id('password')
     submit = driver.find_element_by_xpath('/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
-    email.send_keys(i['email'])
+    email.send_keys(k)
     print("email input")
-    passwrd.send_keys(i['password'])
+    passwrd.send_keys(dictUsers[k])
     print('password input')
     submit.click()
     print('clicked submit')    
@@ -211,7 +213,7 @@ response = requests.post(pitch59_URL, data=body, headers=head)
 if response.status_code == 200:
     #convert data to a python dictionary
 
-    print(response.status_code, "- Success!")
+    print(response.status_code, "- Successfully deleted! :D")
 
     print(response.json())
 else:
