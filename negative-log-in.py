@@ -7,6 +7,7 @@ import time
 import sys
 import getopt
 import requests
+import names
 
 def main(argv):
     option = False
@@ -55,29 +56,7 @@ driver.get("https://public.p59.dev/welcome")
 # specify the function to be carried out
 signupURL = "api/account/sign-up?otp_check=true"
 
-# specify delete url
-
-
 # set a variable to equal the URL
-<<<<<<< Updated upstream
-pitch59_URL = f"https://public.p59.dev/{signupURL}"
-# set arguments that focus the data request
-args = {
-        "firstName": "Tony",
-        "lastName": "Stark",
-        "isTesterUser": true,
-        "contactNumber": "(999) 999-9641",
-        "emailId": "testmurdock8@gmail.com",
-        "password": "BetterThanCap10",
-        "zipCode": "84440",
-        "userReferralModel": {
-            "referralEmail": "Shandu@gmail.com"
-        },
-        "otpCode": 9865
-    }
-# request information from endpoint according to listed arguments
-response = requests.get(pitch59_URL, params=args)
-=======
 pitch59_URL = f"https://api.p59.dev/{signupURL}"
 # firstname = input("Please input first name: ")
 # lastname = input("Please enter last name: ")
@@ -109,29 +88,59 @@ body = {
 }
 # request information from endpoint according to listed arguments
 response = requests.post(pitch59_URL, json=body)
->>>>>>> Stashed changes
 # check for successful request
 if response.status_code == 200:
     #convert data to a python dictionary
-    data_dict = response.json()
+    print(response.status_code, "- Success!")
+    data_dict = response.json()["data"]
+    userId = data_dict["userId"]
+    userToken = data_dict["token"]
+    print(userId)
+    print(userToken)
 else:
     #The request failed- print the status code:
     print("Failure with status code:", response.status_code)
+    print(response.json())
 
 """ BREAK IN """
-listUsers = [
-    {'email':'1221@gmail.com','password':'Love1101'},
-    {'email':'1221@gmail.com','password':'Love1111'},
-    {'email':'1221@gmail.com','password':'Love1111'},
-    {'email':'12201@gmail.com','password':'Love11101'},
-    {'email':'1221@gmail.com','password':'Love1111'}
-]
+def simple_user():
+    name= names.get_first_name() + names.get_last_name()
+    print(name)
+    return name
+
+def simple_pass(pass_len):
+    """
+    Creates a simple password.
+    Parameter "pass_len" is the character length of the password to be created.
+    """
+    characters = string.ascii_letters + string.digits
+    # Picks a random mandatory number.
+    mandatory_number = str(random.randint(0, 9))
+    # Picks a random mandatory lowercase.
+    mandatory_lowercase = string.ascii_lowercase
+    mandatory_lowercase = ''.join(random.choice(mandatory_lowercase) for i in range(1))
+    # Picks a random mandatory uppercase.
+    mandatory_uppercase = string.ascii_uppercase
+    mandatory_uppercase = ''.join(random.choice(mandatory_uppercase) for i in range(1))
+    # Randomly choices characters from the characters variable.
+    password =  "".join(random.choice(characters) for x in range(pass_len - 3))
+    # Concatenates the password variable with the three mandatory variables.
+    password = password + mandatory_number + mandatory_lowercase + mandatory_uppercase
+    return password
+
+dictUsers = {
+    email:passwordInput
+}
+for i in range(100):
+    userEmail = simple_user() + "@gmail.com"
+    dictUsers[userEmail] = simple_pass(8)
+
 
 
 loginSuccess = 0
 whichLogin = ""
 counter = 0
-for i in listUsers:
+for i in dictUsers:
     counter += 1
     link = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[3]')
     link.click()
