@@ -24,5 +24,6 @@ try:
 except:
     driver.quit()
 
+print('testing gitlab mirr')
  
 driver.quit() 
