@@ -162,7 +162,7 @@ print('finished Employment page')
 
 # //*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button/input
 # driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button').click()
-driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button/input').send_keys('C://Users/after/OneDrive/桌面/resume.pdf')
+driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button/input').send_keys('C://Users/after/OneDrive/桌面/resume2021/WeiChunTangresume.pdf')
 time.sleep(2)
 print('upload resume')
 
@@ -170,7 +170,7 @@ print('upload resume')
 # //*[@id="main-form"]/div/app-images/div/div[2]/div[1]/button/input
 # driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[2]/div[1]/button').click()
 time.sleep(2)
-driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[2]/div[1]/button/input').send_keys('C://Users/after/OneDrive/桌面/BYUI.png')
+driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[2]/div[1]/button/input').send_keys('E:/BYUI/wddinternship/images/BYUI.png')
 time.sleep(2)
 print('upload company image')
 
@@ -195,7 +195,7 @@ driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div[3]/p/p-checkb
 time.sleep(1)
 driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/button').click()
 
-driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').send_keys('C:/Users/after/OneDrive/桌面/webpage.mp4')
+driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').send_keys('E:/BYUI/wddinternship/images/test.mp4')
 time.sleep(5)
 
 print('test end')

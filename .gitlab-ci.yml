@@ -36,4 +36,8 @@ before_script:
 test:
   script:
     - python3 p59-search.py -h test
+    - python3 p59-sign-in.py -h test
+    - python3 p59-setting.py -h test
+    - python3 p59-reset-pwd.py -h test
+    - python3 p59-favorite.py -h test
    
