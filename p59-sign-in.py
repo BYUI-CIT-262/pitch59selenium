@@ -54,20 +54,20 @@ logIn.click()
 time.sleep(2)
 print('log in')
 
-contact = driver.find_element_by_xpath(
-    '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[1]/div[3]/app-search-result-thumbnail/div/div[5]/div[2]')
-time.sleep(3)
+# contact = driver.find_element_by_xpath(
+#     '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[1]/div[3]/app-search-result-thumbnail/div/div[5]/div[2]')
+# time.sleep(3)
 
 # contact.click()
 # time.sleep(3)
 
-rightBotton = driver.find_element_by_xpath(
-    '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[4]')
-rightBotton.click()
-time.sleep(2)
-rightBotton.click()
-time.sleep(2)
-print('click right arrow on the pitch card')
+# rightBotton = driver.find_element_by_xpath(
+#     '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[4]')
+# rightBotton.click()
+# time.sleep(2)
+# rightBotton.click()
+# time.sleep(2)
+# print('click right arrow on the pitch card')
 
 profi = driver.find_element_by_xpath(
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
