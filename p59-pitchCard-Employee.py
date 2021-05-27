@@ -96,7 +96,7 @@ time.sleep(2)
 driver.find_element_by_xpath('/html/body/app-root/main/app-layout/div[2]/div/div/div/div[3]/div/div[2]/div').click()
 time.sleep(2)
 
-# Information page
+# ------------- Information page ----------------------
 fullName = driver.find_element_by_xpath('//*[@id="businessName"]')
 fullName.send_keys('Test')
 
@@ -129,9 +129,16 @@ saveAbdNext.click()
 time.sleep(2)
 print('finish information page')
 
-# Link page
+# -------------- Link page -----------------------
 
-driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pricing/div/form/div[1]/span/p-autocomplete/span/ul/li/input').send_keys('web develop')
+driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pricing/div/form/div[1]/span/p-autocomplete/span/ul/li/input').send_keys('web')
+act = ActionChains(driver)
+act.send_keys(Keys.DOWN).perform()
+time.sleep(3)
+
+act.send_keys(Keys.RETURN).perform()
+time.sleep(2)
+
 
 facebookLink = driver.find_element_by_xpath('//*[@id="facebookLink"]')
 facebookLink.send_keys('11111')

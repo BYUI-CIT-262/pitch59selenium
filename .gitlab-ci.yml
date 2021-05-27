@@ -40,4 +40,4 @@ test:
     - python3 p59-setting.py -h test
     - python3 p59-reset-pwd.py -h test
     - python3 p59-favorite.py -h test
-   
+

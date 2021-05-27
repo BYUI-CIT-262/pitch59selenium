@@ -91,6 +91,7 @@ stateInfor.send_keys('ID')
 
 zipInfor = driver.find_element_by_xpath('//*[@id="zip"]')
 zipInfor.send_keys('83440')
+time.sleep(2)
 
 saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/div[2]/div/div/div[1]/div[3]/div/div[2]/div')
 saveAbdNext.click()
@@ -120,37 +121,50 @@ saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/
 saveAbdNext.click()
 time.sleep(2)
 print('finish link page')
-# location = driver.find_element_by_xpath('//*[@id="address"]')
-# location.send_keys('rexburg')
-# act = ActionChains(driver)
-# act.send_keys(Keys.TAB).perform()
+
+
+#------------------Radius page --------------------
+location = driver.find_element_by_xpath('//*[@id="address"]')
+location.send_keys('rexburg')
+time.sleep(3)
+act = ActionChains(driver)
+act.send_keys(Keys.DOWN).perform()
+time.sleep(3)
+
+act.send_keys(Keys.RETURN).perform()
+time.sleep(2)
 
 saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/div[2]/div/div/div[1]/div[3]/div/div[2]/div')
 saveAbdNext.click()
 time.sleep(2)
-print('Radius page still needs to work on')
+print('finish Radius page')
 
 # ----------------- position page -----------------------
 position = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/span[1]/p-autocomplete/span/ul/li/input')
-position.send_keys('Web Developer')
+position.send_keys('software')
+act.send_keys(Keys.DOWN).perform()
+time.sleep(3)
 
-workType = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[1]/p-dropdown/div')
-workType.click()
+act.send_keys(Keys.RETURN).perform()
+time.sleep(2)
 
-fullTime = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[1]/p-dropdown/div/div[4]/div/ul/p-dropdownitem[2]/li')
-fullTime.click()
+# workType = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[1]/p-dropdown/div')
+# workType.click()
 
-education = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[2]/p-dropdown/div')
-education.click()
+# fullTime = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[1]/p-dropdown/div/div[4]/div/ul/p-dropdownitem[2]/li')
+# fullTime.click()
 
-bachelorDegree = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[2]/p-dropdown/div/div[4]/div/ul/p-dropdownitem[7]/li')
-bachelorDegree.click()
+# education = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[2]/p-dropdown/div')
+# education.click()
 
-university = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/span[2]/p-autocomplete/span/ul/li/input')
-university.send_keys('BYU-I')
+# bachelorDegree = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/div[1]/div[2]/p-dropdown/div/div[4]/div/ul/p-dropdownitem[7]/li')
+# bachelorDegree.click()
 
-skills = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/span[3]/p-autocomplete/span/ul/li/input')
-skills.send_keys('JavaScript')
+# university = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/span[2]/p-autocomplete/span/ul/li/input')
+# university.send_keys('BYU-I')
+
+# skills = driver.find_element_by_xpath('//*[@id="main-form"]/div/app-employment/form/div/span[3]/p-autocomplete/span/ul/li/input')
+# skills.send_keys('JavaScript')
 
 saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/div[2]/div/div/div[1]/div[3]/div/div[2]/div')
 saveAbdNext.click()
@@ -197,6 +211,7 @@ driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/button').click()
 
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').send_keys('E:/BYUI/wddinternship/images/test.mp4')
 time.sleep(5)
+# C:/Users/after/OneDrive/桌面/selenium/images/test.mp4
 
 print('test end')
-driver.quit()
+# driver.quit()

@@ -129,7 +129,19 @@ saveAbdNext.click()
 time.sleep(2)
 print('finish information page')
 
-# Link page
+# ----------------- Link page -----------------------------
+
+
+driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pricing/div/form/div[1]/span/p-autocomplete/span/ul/li/input').send_keys('web')
+time.sleep(3)
+
+act = ActionChains(driver)
+act.send_keys(Keys.DOWN).perform()
+time.sleep(3)
+
+act.send_keys(Keys.RETURN).perform()
+time.sleep(2)
+
 facebookLink = driver.find_element_by_xpath('//*[@id="facebookLink"]')
 facebookLink.send_keys('11111')
 
@@ -153,7 +165,22 @@ saveAbdNext.click()
 time.sleep(2)
 print('finish link page')
 
-# upload image page
+#--------------------map ---------------------
+location = driver.find_element_by_xpath('//*[@id="address"]')
+location.send_keys('rexburg')
+time.sleep(3)
+act.send_keys(Keys.DOWN).perform()
+time.sleep(3)
+
+act.send_keys(Keys.RETURN).perform()
+time.sleep(2)
+
+saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/div[2]/div/div/div[1]/div[3]/div/div[2]/div')
+saveAbdNext.click()
+time.sleep(2)
+print('finish Radius page')
+
+# ----------------- upload image page -----------------
 time.sleep(2)
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[2]/div[1]/button/input').send_keys('E:/BYUI/wddinternship/images/BYUI.png')
 time.sleep(2)
@@ -161,13 +188,14 @@ print('upload company image')
 
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[1]/div[3]/button/app-image-uploader/input').send_keys('E:/BYUI/wddinternship/images/logo.png')
 time.sleep(5)
-driver.find_element_by_xpath('/html/body/div[2]/div/div[3]/p-footer/div').click()
+
+driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/p-footer/div').click()
 time.sleep(2)
 
 
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-images/div/div[1]/div[1]/button/app-image-uploader/input').send_keys('E:/BYUI/wddinternship/images/logo.png')
 time.sleep(2)
-driver.find_element_by_xpath('/html/body/div[2]/div/div[3]/p-footer/div').click()
+driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/p-footer/div').click()
 print('upload cover')
 time.sleep(2)
 
@@ -175,15 +203,16 @@ saveAbdNext = driver.find_element_by_xpath('/html/body/app-root/main/app-layout/
 saveAbdNext.click()
 time.sleep(5)
 
-#  up load video page
+#  ----------------- up load video page -------------------
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').click()
 time.sleep(2)
 
-driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[1]/p/p-checkbox/div/div[2]').click()
-driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/p/p-checkbox/div/div[2]').click()
-driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[3]/p/p-checkbox/div/div[2]').click()
+driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div[1]/p/p-checkbox/div/div[2]').click()
+driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div[2]/p/p-checkbox/div/div[2]').click()
+driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div[3]/p/p-checkbox/div/div[2]').click()
 time.sleep(1)
-driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/button').click()
+driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/button').click()
+time.sleep(3)
 
 driver.find_element_by_xpath('//*[@id="main-form"]/div/app-pitch-video/div/div/div/div[2]/div').send_keys('E:/BYUI/wddinternship/images/webpage.mp4')
 time.sleep(5)

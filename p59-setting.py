@@ -56,7 +56,7 @@ test2 = 'testtest'
 emailAddress1 = "1111@gmail.com"
 emailAddress2 = "2222@gmail.com"
 phone1 = '(999) 999-7485'
-phone2 = '(999) 999-7480'
+phone2 = '(999) 999-7482'
 zip1 = '83440'
 zip2 = '93440'
 
@@ -141,6 +141,7 @@ time.sleep(3)
 print('End first profile update')
 
 account = driver.find_element_by_xpath('//*[@id="email"]')
+
 account.send_keys(emailAddress2)
 
 password = driver.find_element_by_xpath('//*[@id="password"]')
