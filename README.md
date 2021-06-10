@@ -15,5 +15,5 @@ The advantage to this approach is not having to install the Selenium Chrome Driv
 - Make sure Docker is running - you should see an icon on your computer showing it running
 - Type this command: `docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:4.0.0-beta-3-20210426`
 - Now that chrome is running in the docker container on port 4444, you can access it using a python test
-- Run this command: `python [scriptname]`
+- Run this command: `python [scriptname] -h`
 (remove the brackets above and change to the actual script)
