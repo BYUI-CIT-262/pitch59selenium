@@ -34,6 +34,8 @@ options.add_argument('--no-sandbox')
 driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
 
+#old account = 1111@gmail.com   pwd = Love1111
+#new test account = p59testa@gmail.com   pwd Love1111
 
 pwd1 = 'Love1111'
 pwd = 'Love1111'
@@ -43,7 +45,7 @@ link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome
 link.click()
 
 email = driver.find_element_by_xpath('//*[@id="email"]')
-email.send_keys('1111@gmail.com')
+email.send_keys('p59testa@gmail.com')
 
 password = driver.find_element_by_xpath('//*[@id="password"]')
 password.send_keys(pwd)
@@ -81,7 +83,7 @@ time.sleep(2)
 print('Change password successfully')
 
 email = driver.find_element_by_xpath('//*[@id="email"]')
-email.send_keys('1111@gmail.com')
+email.send_keys('p59testa@gmail.com')
 
 password = driver.find_element_by_xpath('//*[@id="password"]')
 password.send_keys(pwd1)
